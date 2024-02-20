@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        h2 {
+            text-align: center;
+            background-color: blue;
+            color: white;
+        }
+
+        body {
+            background-color: lightblue;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 300px;
+            position: relative;
+            left: 600px;
+            position: relative;
+            top: 100px;
+        }
+
+        td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Login</h2>
+    <table>
+        <tr>
+            <td><label for="loginEmail">Email:</label></td>
+            <td><input type="email" id="loginEmail" required></td>
+        </tr>
+        <tr>
+            <td><label for="loginPassword">Password:</label></td>
+            <td><input type="password" id="loginPassword" required></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="button" onclick="validateLogin()">Login</button></td>
+        </tr>
+    </table>
+    <script>
+        function validateLogin() {
+            var loginEmail = document.getElementById('loginEmail').value;
+            var loginPassword = document.getElementById('loginPassword').value;
+
+            // Retrieve user information from local storage
+            var storedUserInfo = localStorage.getItem('userInfo');
+
+            if (storedUserInfo) {
+                // Parse the stored user information
+                var userInfo = JSON.parse(storedUserInfo);
+
+                // Check if entered email and password match stored information
+                if (loginEmail === userInfo.email && loginPassword === userInfo.password) {
+                    alert('Login successful! Redirecting to Dashboard.');
+                    window.location.href = 'Dashboard.html';
+                } else {
+                    alert('Invalid email or password. Please try again.');
+                }
+            } else {
+                alert('No user registered. Please sign up first.');
+            }
+        }
+    </script>
+</body>
+
+</html>

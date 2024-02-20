@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: lightcoral;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav img {
+            height: 30px;
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            width: calc(25% - 20px);
+            text-align: center;
+            box-sizing: border-box;
+            background-color: lightsalmon;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #cart-icon {
+            cursor: pointer;
+        }
+
+        #cart-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: red;
+            padding: 20px;
+            display: none;
+            z-index: 2;
+        }
+
+        #cart-popup h2 {
+            text-align: center;
+        }
+
+        #cart-popup ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-popup li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Product Showcase</h1>
+</header>
+<nav>
+    <img src="./images/face_FILL0_wght400_GRAD0_opsz24.png" alt="Logo">
+    <div>
+        <span id="cart-icon" onclick="showCart()">🛒 0</span>
+        <img src="./images/shopping_cart_FILL0_wght400_GRAD0_opsz24.png" alt="User" onclick="showLogoutPopup()">
+    </div>
+</nav>
+<div class="product-container" id="product-container">
+</div>
+<div id="logout-popup" style="display: none;">
+    <p>Are you sure you want to log out?</p>
+    <button onclick="logout()">Logout</button>
+    <button onclick="closePopup()">Cancel</button>
+</div>
+<div id="cart-popup">
+    <h2>Shopping Cart</h2>
+    <ul id="cart-list"></ul>
+    <button onclick="closeCart()">Close</button>
+</div>
+<script>
+    let cartItemCount = 0;
+    let cartItems = [];
+
+    fetch('https://fakestoreapi.com/products')
+        .then(response => response.json())
+        .then(products => {
+            const productContainer = document.getElementById('product-container');
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+                productCard.innerHTML = `
+                        <h3>${product.title}</h3>
+                        <p>${product.price}$</p>
+                        <h4>${product.rating.rate}$</h4>
+                        <img src="${product.image}" alt="${product.title}" style="width: 300px; height: 300px;">
+
+                        <button onclick="addToCart('${product.title}', ${product.price})">Buy</button>
+                    `;
+                productContainer.appendChild(productCard);
+            });
+        });
+
+
+
+
+function addToCart(productTitle, productPrice, productRating, productDescription, productImage) {
+    cartItemCount++;
+    document.getElementById('cart-icon').innerText = `🛒 ${cartItemCount}`;
+
+    // Push the product details into the cartItems array
+    cartItems.push({
+        title: productTitle,
+        price: productPrice,
+        rating: productRating,
+        description: productDescription,
+        image: productImage
+    });
+}
+
+function showCart() {
+    // Convert cartItems array to JSON and encode it
+    const cartItemsJSON = encodeURIComponent(JSON.stringify(cartItems));
+    // Redirect to cart.html with cartItems data in the query parameter
+    window.location.href = `cart.html?cart=${cartItemsJSON}`;
+}
+
+function closeCart() {
+        document.getElementById('cart-popup').style.display = 'none';
+    }
+
+    function showLogoutPopup() {
+        document.getElementById('logout-popup').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('logout-popup').style.display = 'none';
+    }
+
+    function logout() {
+        alert('Logging out...');
+        window.location.href = 'home.html';
+    }
+</script>
+</body>
+</html>

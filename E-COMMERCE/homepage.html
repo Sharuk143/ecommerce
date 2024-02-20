@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        h1{
+            color: red;
+            text-align: center;
+            background-color: aqua;
+        }
+        body{
+            background-color: lightpink;
+        }
+        #signupBtn,#loginBtn{
+            position: relative;
+            left: 700px;
+            text-align: center;
+            position: relative;
+            top: 200px;
+        
+}
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Home Page</h1>
+    <button id="signupBtn">Sign Up</button>
+    <button id="loginBtn">Log In</button>
+
+    <script>
+        // Function to handle Sign Up button click
+        document.getElementById("signupBtn").addEventListener("click", function() {
+            // Redirect to the Sign Up page
+            window.location.href = "signup.html";
+        });
+
+        // Function to handle Log In button click
+        document.getElementById("loginBtn").addEventListener("click", function() {
+            // Redirect to the Log In page
+            window.location.href = "login.html"; 
+        });
+    </script>
+
+</body>
+</html>

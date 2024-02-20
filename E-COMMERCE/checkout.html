@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+
+
+    <button onclick="checkout()">Checkout</button>
+
+    <script>
+        // Retrieve cart items from local storage
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Display cart items
+        const cartContainer = document.getElementById('cart-container');
+        cartItems.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.innerHTML = `
+                <p>${item.title} - Quantity: ${item.quantity} - Price: ${item.price * item.quantity}$</p>
+            `;
+            cartContainer.appendChild(cartItem);
+        });
+         function checkout() {
+            localStorage.removeItem('cart');
+            alert('Thank you for your purchase!');
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>
+
