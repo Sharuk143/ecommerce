@@ -1,0 +1,105 @@
+/* .botn{
+    color: white;
+    background-color: red;
+    margin: 5px;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+} */
+
+
+
+/* HeadComponent style */
+
+/* .bg{
+    background-color: red;
+}
+
+.h1{
+    text-align: center;
+    font-style: italic;
+    color: white !important;
+} */
+
+
+
+/* EmployeeDetailsComponent style */
+
+
+/* .card{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+    border:2px solid black !important;
+    background-color: aqua !important;
+}
+
+
+.title{
+    color:red !important;
+} */
+
+
+/* ProuctCardomponent style */
+
+/* .product{
+    margin-top:10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-evenly !important;
+    border: 2px solid black !important;
+    background-color: white !important;
+    gap:10px !important;
+}
+
+.title {
+    color: red !important;
+}
+
+
+.box{
+    background-color: ghostwhite !important;
+    width: 450px !important;
+    height: 550px !important;
+}
+
+
+
+table,tr,td,th{
+    border: 2px solid black !important;
+    border-collapse: collapse !important;
+
+    margin: 10px !important;
+
+} */
+
+
+
+/*  Form Controlled Forms.js */
+
+.form{
+    position: absolute;
+        top: 10%;
+        left: 40%;
+}
+
+
+table,
+tr,
+td,
+th {
+    border: 2px solid black !important;
+    border-collapse: collapse !important;
+}
+
+
+table{
+    position: absolute;
+        top: 20%;
+        left: 15%;
+
+    background-color: whitesmoke;
+}
+
+

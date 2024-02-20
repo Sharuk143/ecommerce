@@ -1,0 +1,15 @@
+body{
+  background-color:linen !important;
+}
+
+.App{
+  position: absolute;
+  top: 20%;
+  left:40%;
+}
+
+.box{
+  position: absolute;
+  top: 60%;
+  left: 0%;
+}

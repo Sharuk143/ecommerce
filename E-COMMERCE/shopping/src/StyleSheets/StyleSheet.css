@@ -1,0 +1,30 @@
+.linkStyle{
+    text-decoration: none !important;
+    color:white !important;
+    margin-right: 10px !important;
+}
+
+.linkStyle:hover{
+    color:red !important;
+}
+
+.botn{
+    text-align: center !important;
+}
+
+.botn:hover{
+    background-color: yellow !important;
+    color:red !important;
+}
+
+/* 
+.box{
+    width:400px !important;
+    height: 400px !important;
+} */
+
+
+.btlink{
+    text-decoration: none;
+    color: whitesmoke;
+}

@@ -1,0 +1,47 @@
+.block{
+    display: flex;
+    justify-content: center;
+    margin-top:20px;
+}
+
+.batn{
+    margin-right: 70%;
+    margin-top: 10px;
+}
+
+.Imwh{
+    width: 300px !important;
+    height: 300 !important;
+    align-self: center;
+    margin: 10px;
+}
+
+.area{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.registerBlock{
+    display: flex !important;
+    justify-content: center !important;
+    margin: 25px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap:5px;
+    padding: 10px;
+    border:2px solid black;
+}
+
+
+.loader{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
